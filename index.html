@@ -2278,6 +2278,7 @@ function go(id) {
   });
   if(window.innerWidth<=700) document.getElementById('sidebar').classList.remove('open');
   window.scrollTo({top:0,behavior:'smooth'});
+  if(id==='progreso'||id==='inicio') setTimeout(updateAllProgress, 50);
 }
 
 function toggleSidebar() {
@@ -2451,13 +2452,6 @@ function resetProgress() {
     if(btn) btn.innerHTML = '&#10003; Domino este tema';
   });
   updateAllProgress();
-}
-
-// Override go() to refresh progress panel when opened
-const _origGo = go;
-function go(id) {
-  _origGo(id);
-  if(id==='progreso'||id==='inicio') setTimeout(updateAllProgress, 50);
 }
 
 // ==================== SISTEMA DE EXÁMENES ====================
